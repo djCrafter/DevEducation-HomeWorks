@@ -1,0 +1,7 @@
+C:\Repo\DevEducation-HomeWorks\SnakeGame\SnakeGame\bin\Debug\SnakeGame.exe.config
+C:\Repo\DevEducation-HomeWorks\SnakeGame\SnakeGame\bin\Debug\SnakeGame.exe
+C:\Repo\DevEducation-HomeWorks\SnakeGame\SnakeGame\bin\Debug\SnakeGame.pdb
+C:\Repo\DevEducation-HomeWorks\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csprojAssemblyReference.cache
+C:\Repo\DevEducation-HomeWorks\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csproj.CoreCompileInputs.cache
+C:\Repo\DevEducation-HomeWorks\SnakeGame\SnakeGame\obj\Debug\SnakeGame.exe
+C:\Repo\DevEducation-HomeWorks\SnakeGame\SnakeGame\obj\Debug\SnakeGame.pdb

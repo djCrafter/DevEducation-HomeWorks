@@ -5,15 +5,17 @@ namespace SnakeGame
 {
     class Game
     {
-        Field field = new Field(25, 40);
+        Field field = new Field(20, 30);
         Snake snake;
 
         Point fruit_position = new Point();
         bool fruitOnField = false;
 
         bool game_continues = true;
-        int pause_interval = 150;
+        int pause_interval = 400;
+        int min_interval = 50;
         int correct = 1;
+        int score = 0;
 
         int defaultFruitCounter = 20;
         int fruitCounter = 5;
@@ -26,12 +28,12 @@ namespace SnakeGame
         public void StartGame()
         {
             Console.CursorVisible = false;
-            field.DrawField(ConsoleColor.Yellow);
+            field.DrawField(ConsoleColor.Red);
             Draw(snake.snakePoints[0], SnakePart.Head);
             Console.SetCursorPosition(0, field.VerticalSize + 3);
             Controls(Console.ReadKey().Key);
             snake.Attach_the_tail();
-
+            DrawScore(0);
 
             Process();
         }
@@ -49,6 +51,7 @@ namespace SnakeGame
                 Move();
 
                 Thread.Sleep(pause_interval);
+                DrawScore(score);
             }
 
             Console.Clear();
@@ -124,7 +127,13 @@ namespace SnakeGame
           
             if(point == fruit_position)
             {
-                InsertNewPart(point);                
+                InsertNewPart(point);
+                if(pause_interval >= min_interval)
+                {
+                    pause_interval -= 25;
+                    score += 100;
+                    
+                }
             }
             else if (Collision(point))
             {
@@ -225,13 +234,19 @@ namespace SnakeGame
 
         public bool Collision(Point point)
         {
-            for (int i = 1; i < snake.snakePoints.Count; ++i)
+            for (int i = 1; i < snake.snakePoints.Count - 1; ++i)
                 if (point == snake.snakePoints[i])
                     return true;
 
             return false;
         }
 
-      
+      public void DrawScore(int score)
+        {
+            Console.SetCursorPosition(field.HorizontalSize + 4, 1);
+            Console.Write(new string(' ', 15));
+            Console.SetCursorPosition(field.HorizontalSize + 4, 1);
+            Console.Write("Score Point: " + score);
+        }
     }
 }
